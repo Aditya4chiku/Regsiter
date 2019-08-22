@@ -1,0 +1,82 @@
+<div class="login">
+    <!-- Default form login -->
+    
+    <form class="text-center border border-light p-5" #regForm="ngForm" (submit)="RegisterUser()">
+    <p class="h4 mb-4">Sign in</p>
+    <!-- Email -->
+    <div class="form-group">
+    <input type="text" class="form-control mb-4" name="username" [class.is-invalid]="username.invalid && username.touched"  required  #username="ngModel"   placeholder="Enter Username" [(ngModel)]="user.username">
+    <span class="text-danger" [class.d-none]="username.valid || username.untouched" >username is required</span>
+   </div>
+    <!-- Password -->
+    <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required name="password"  class="form-control mb-4"  placeholder="Enter Password" [(ngModel)]="user.password">
+    <span class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</span>
+    <!-- <div *ngIf="password.errors && (password.invalid || password.touched)">
+         <span class="text-danger" *ngIf="password.errors.required">Password is required</span>
+     </div> -->
+    <div class="d-flex justify-content-around">
+        <div>           
+        </div>       
+    </div>
+    <!-- Sign in button -->
+    <button  [disabled]="regForm.form.invalid" class="btn btn-danger btn-block my-4" type="submit">Sign in</button>  
+</form>
+<!-- Default form login -->
+</div>
+
+
+<br>
+<hr>
+
+
+
+<div class="container">
+<table  width="100" class=" table table-dark"  boredr="1">
+    <tr>
+        <td>UserName</td>
+        <td>Password</td>
+    
+    </tr>
+
+    <tr *ngFor="let user of userData">
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+    </tr>
+</table>
+</div>
+
+
+
+
+
+
+
+<h1>Login Form</h1>
+
+<div class="login" *ngIf="!check">
+        <form class="text-center border border-light p-5" #login="ngForm" (submit)="DataSubmit()">
+         <p class="h4 mb-4">Sign in</p>
+       
+         <div class="form-group">
+         <input type="text" class="form-control mb-4" name="username" [class.is-invalid]="username.invalid && username.touched"  required  #username="ngModel"   placeholder="Enter Username" [(ngModel)]="user.username">
+         <span class="text-danger" [class.d-none]="username.valid || username.untouched" >username is required</span>
+        </div>
+        
+         <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required name="password"  class="form-control mb-4"  placeholder="Enter Password" [(ngModel)]="user.password">
+         <span class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</span>
+        
+         <div class="d-flex justify-content-around">
+             <div>           
+             </div>       
+         </div>
+               <button  [disabled]="login.form.invalid" class="btn btn-danger btn-block my-4" type="submit">Sign in</button>  
+     </form>
+     
+     </div>
+     
+
+
+
+
+
+
